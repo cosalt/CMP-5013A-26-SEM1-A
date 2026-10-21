@@ -1,0 +1,21 @@
+####### SETTING UP THE DATA IN THE RIGHT REGISTERS 
+
+.text ##<--- this sets up main body of the code
+
+	main: #<---- label main, not neccessary here but good practice
+	
+		addi $s0 $zero 1 ## putting the number 1 in $s0 (pow) 
+		add $s1 $zero $zero ## putting the number 0 in $s1 (x)
+		addi $t0 $zero 128 #putting the value 128 into $t0
+		
+### now the while loop 
+
+	while: #< ---- setting up a new label for the while loop to jump back to
+		
+		beq $s0, $t0, done #branch to label done if $s3 and $s4 ARE  equal
+		sll $s0, $s0, 1 # sll is shift left logical, on this line the value in $s0 is shifted by 1 which has the effect of doubling the value.
+		addi $s1, $s1, 1 # this will increment the value in $s1 by 1
+		j while # <--- jump to label 'while' until the beq condtion in line 17 is met
+
+		done:   #<---- ends the script by dropping out, though there is a better way to terminate the code using the syscall function but let's not worry about that for now
+		

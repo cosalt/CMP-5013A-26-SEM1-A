@@ -1,0 +1,21 @@
+####### SETTING UP THE DATA IN THE RIGHT REGISTERS 
+
+.text ##<--- this sets up main body of the code
+
+	main: #<---- label main, not neccessary here but good practice
+	
+		add $s0 $zero $zero ## putting the number 0 in $s0 (f) notice we add not use addi becuase this is adding between two registers 
+		addi $s1 $zero 1 ## putting the number 1 in $s1 (g)
+		addi $s2 $zero 2 ## putting the number 2 in $s2 (h)
+		addi $s3 $zero 4 ## putting the number 4 in $s3 (i)
+		addi $s4 $zero 4 ## putting the number 4 in $s4 (j)
+		
+### now the main code 
+
+		bne $s3, $s4, L1 #branch to label L1 if $s3 and $s4 are NOT  equal
+		add $s0, $s1, $s2 # add $s1 to $s2 and save the answer in $s0
+		j done # <--- jump to label done when finished
+		
+		L1: sub $s0, $s0, $s3 #subtract $s3 from $s0 and save it in $s0
+		done:   #<---- ends the script by dropping out, though there is a better way to terminate the code using the syscall function but let's not worry about that for now
+		

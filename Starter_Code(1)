@@ -1,0 +1,25 @@
+.data # this .data section is where you can simulate stored data in random access memory 
+
+	array: .word 5, 2, 6, 7, 1 # you can write any label which ends in a colon such as 'array:' <- PUT YOUR STUDENT NUMBERS HERE
+	length: .word 5 # <--- THIS IS THE NUMBER OF ELEMENTS IN THE ARRAY
+	
+	
+.text #this section is where you write your main script
+
+	main:
+		la $t0, array # la is load address base address  <---- loads the base ADDRESS of the array into $t0
+		li $t1, 0     # i=0 
+		lw $t2, length #store length 5 into $t2
+		li $t3, 0 #sum = 0
+ 		
+############### COMPLETE YOUR CODE BELOW THIS LINE #######			
+			
+		
+				
+
+################COMPLETE YOUR CODE ABOVE THIS LINE #######
+		
+		
+		#terminate program 
+		li $v0 10     #### THIS IS A GOOD WAY TO END THE PROGRAM BY PUTTING THE VALUE 10 INTO $v0 AND USING SYSCALL
+		syscall
