@@ -2,7 +2,7 @@
 
 .text # code section
 main: # label where the program starts
-	li $t0, 9 # load immediate, the constant into t0
+	li $t0, 3 # load immediate, the constant into t0
 	slti $t2, $t0, 7 #set if less than immediate, if t0 less than 7, then set t1 to 1, else set to 0
 	beq $t2, $zero, else # if $t2 == $zero, then jump to else, otherwise, carry on
 	addi $t1, $t0, 7 #add t0 + const(7) into t1
@@ -27,7 +27,7 @@ main: # label where the program starts
 
 .text
 main:
-	li $t0, 9
+	li $t0, 3
 	slti $t2, $t0, 7
 	beq $t2, $zero, else
 	addi $t1, $t0, 7
